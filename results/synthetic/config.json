@@ -1,0 +1,22 @@
+{
+  "formation_days": 252,
+  "trading_days": 63,
+  "min_corr": 0.5,
+  "pvalue_alpha": 0.05,
+  "correction": "bh",
+  "min_half_life": 2.0,
+  "max_half_life": 60.0,
+  "max_pairs": 5,
+  "hedge_method": "ols",
+  "z_window": 60,
+  "entry_z": 2.0,
+  "exit_z": 0.5,
+  "stop_z": 4.0,
+  "max_hold_mult": 3.0,
+  "kalman_delta": 1e-05,
+  "costs": {
+    "commission_bps": 1.0,
+    "slippage_bps": 2.0,
+    "borrow_bps_annual": 50.0
+  }
+}

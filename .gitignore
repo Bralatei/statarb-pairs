@@ -1,0 +1,10 @@
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+data/
+results/*
+!results/synthetic/
+.ipynb_checkpoints/
+.DS_Store

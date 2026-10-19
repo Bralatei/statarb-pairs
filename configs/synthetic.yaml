@@ -1,0 +1,21 @@
+# Runs offline. Synthetic universe with 4 true cointegrated pairs + 8 noise stocks.
+data:
+  source: synthetic
+  params: {n_days: 2520, n_pairs: 4, n_noise: 8, seed: 42}
+
+strategy:
+  formation_days: 252
+  trading_days: 63
+  min_corr: 0.5
+  pvalue_alpha: 0.05
+  correction: bh
+  max_pairs: 5
+  hedge_method: ols
+  z_window: 60
+  entry_z: 2.0
+  exit_z: 0.5
+  stop_z: 4.0
+  max_hold_mult: 3.0
+  costs: {commission_bps: 1.0, slippage_bps: 2.0, borrow_bps_annual: 50.0}
+
+output: results/synthetic

@@ -1,0 +1,30 @@
+# Real data: liquid US sector / country / asset-class ETFs.
+# Needs `pip install -e ".[data]"` and internet. Prices are cached on first run.
+#
+# Why ETFs: cheap to trade and short, no single-stock survivorship bias,
+# and many share economic drivers (e.g. XLE/OIH, GLD/GDX, EWA/EWC).
+data:
+  source: yfinance
+  tickers: [SPY, XLE, XOP, OIH, XLF, KBE, KRE, XLU, XLP, XLY, XLK, XLV, XLI, XLB,
+            GLD, GDX, SLV, EWA, EWC, EWG, EWU, EWJ, IWM, IJR, TLT, IEF, HYG, LQD]
+  start: "2012-01-01"
+  end: "2026-09-30"
+  cache: data/etfs.csv
+  benchmark: SPY          # excluded from the universe, used only for comparison
+
+strategy:
+  formation_days: 252
+  trading_days: 63
+  min_corr: 0.8
+  pvalue_alpha: 0.05
+  correction: bh
+  max_pairs: 6
+  hedge_method: kalman
+  z_window: 60
+  entry_z: 2.0
+  exit_z: 0.5
+  stop_z: 4.0
+  max_hold_mult: 3.0
+  costs: {commission_bps: 1.0, slippage_bps: 2.0, borrow_bps_annual: 50.0}
+
+output: results/etfs
